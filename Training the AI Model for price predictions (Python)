@@ -4,6 +4,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 import joblib  # To save the model
 
+
+
 # Load dataset (Replace 'crop_prices.csv' with your actual dataset)
 df = pd.read_csv("crop_prices.csv")
 

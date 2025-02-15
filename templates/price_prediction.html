@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+	<div>
+      <h1>Crop Price Prediction</h1>
+      <form onSubmit={handleSubmit}>
+        <input type="number" name="rainfall" placeholder="Rainfall" onChange={handleChange} required />
+        <input type="number" name="temperature" placeholder="Temperature" onChange={handleChange} required />
+        <input type="number" name="demand" placeholder="Market Demand" onChange={handleChange} required />
+        <input type="number" name="previous_price" placeholder="Previous Price" onChange={handleChange} required />
+        <button type="submit" class = "button btn btn-primary">Predict</button>
+      </form>
+     <h2>Predicted Price: ₹{prediction.toFixed(2)}</h2>}
+    </div>
+
+{% endblock %}

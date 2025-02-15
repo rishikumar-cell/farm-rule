@@ -5,15 +5,26 @@
 
 <!--cover starts-->
 <div class="container">
+  <div style="justify-content: center; text-align: center; margin-top: 2rem;">
+    {% if farmer %}
+<h1>Welcome, {{ farmer.full_name }}!</h1>
+{% elif consumer %}
+<h1>Welcome, {{ consumer.full_name }}!</h1>
+{% endif %}
+
+  </div>
 
 <div style="height: 800px; padding-top: 300px;">
+  
     <div class="search form-control mb-5 " style="border: none;justify-content: center; display: flex; margin-top:-13rem ;">
         
+   <br><br>
         <form class="d-flex float-end">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
-        
+            
           </form>
+
         </div>
 <div class="cover-container ms-center text-center d-flex w-100 h-100 p-3 mx-auto flex-column" style="height: 500px;">
 
@@ -23,8 +34,11 @@
       <h1>Empowering Farmers, Eliminating Middlemen</h1>
       <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
       <p class="lead">
-    <a href="#" class="btn btn-lg btn-success fw-bold border-black bg-black">Sell as Farmer</a>
-    <a href="#" class="btn btn-lg btn-info fw-bold border-black bg-black">Buy farmer Produce</a>
+        {% if farmer %}
+    <a href="{% url 'farmer_register' %}" class="btn btn-lg btn-success fw-bold border-black bg-black">Sell Your Produce</a>
+    {% elif consumer %}
+    <a href="#" class="btn btn-lg btn-info fw-bold border-black bg-black">Buy Farmer Produce</a>
+    {% endif %}
       </p>
     </main>
 </div>
@@ -101,15 +115,16 @@
 <div class=" overview-conatiner h-400" style="height: 500px;">
     
     <h2 class="ms-center mb-5" style="text-align: center;" >Explore the Features</h2>
-<div class="row mt-3">
-    <div class="col-md-6 " style="margin-top: 4rem;">
+<div class="row mt-3" style="justify-content: center; text-align: center;">
+  {% if farmer %}
+    <div class="col-md-6 " style="margin-top: 4rem; justify-content: center;">
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
           <strong class="d-inline-block mb-2 text-primary">Farmer</strong>
           <h3 class="mb-0">Farmer features</h3>
           <div class="mb-1 text-muted">Nov 12</div>
           <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="stretched-link">Explore more features</a>
+          <a href="{% url 'features' %}" class="stretched-link">Explore more features</a>
         </div>
         <div class="col-auto d-none d-lg-block">
           <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
@@ -117,6 +132,7 @@
         </div>
       </div>
     </div>
+    {% elif consumer %}
     <div class="col-md-6" style="margin-top: 4rem;">
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
@@ -132,6 +148,8 @@
         </div>
       </div>
     </div>
+    {% endif %}
+    <div>No Features</div>
   </div>
 </div>
 <br>
@@ -194,7 +212,7 @@
       <p class="lead"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">The human face is a complex and highly distinctive part of the body. In fact, it is one of the most complex signaling systems available to us; it includes more than 40 structurally and functionally independent muscles, each of which can be operated independently of the others; and it is one of the most powerful indicators of emotion.</font></font></p>
     </div>
     <div class="col-md-5">
-      <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+      <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7dfUdTZuPQL2JFt-ktLEO83aWcGCRreIc2Q&s" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
 
     </div>
   </div>
@@ -206,7 +224,7 @@
       <p class="lead"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">When we laugh or cry, we display our emotions, allowing others to peek into our minds as they “read” our faces based on changes in major facial components, such as the eyes, eyebrows, eyelids, nose, and lips.</font></font></p>
     </div>
     <div class="col-md-5 order-md-1">
-      <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7dfUdTZuPQL2JFt-ktLEO83aWcGCRreIc2Q&s" alt="">
 
     </div>
   </div>

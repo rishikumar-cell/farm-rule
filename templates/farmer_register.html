@@ -1,0 +1,58 @@
+{% extends 'main.html' %}
+{% block content %}
+
+    <form method="post" enctype="multipart/form-data" class="form-control">
+        <h3>farmer registration</h3>
+        {% if messages %}
+    {% for message in messages %}
+        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+        {% csrf_token %}
+        {{ form.as_p }}
+        <label for="username">Username:</label>
+        <input class="form-control" type="text" name="username" required><br>
+    
+        <label for="password">Password:</label>
+        <input class="form-control" type="password" name="password" required><br>
+
+        
+        <label for="confirmpassword" class="block mb-1 font-medium">Repeat Password</label>
+        <input class="form-control" type="password" id="confirmpassword" name="confirmpassword" placeholder="Repeat your password..." class="w-full p-2 border rounded">
+        
+    
+        <label for="email">Email:</label>
+        <input class="form-control" type="email" name="email"><br>
+    
+        <label for="full_name">Full Name:</label>
+        <input class="form-control" type="text" name="full_name" required><br>
+    
+        <label for="mobile_number">Mobile Number:</label>
+        <input class="form-control" type="text" name="mobile_number" required><br>
+    
+        <label for="aadhaar_number">Aadhaar Number:</label>
+        <input class="form-control" type="text" name="aadhaar_number" required><br>
+    
+        <label for="date_of_birth">Date of Birth:</label>
+        <input class="form-control" type="date" name="date_of_birth" required><br>
+
+        <select name="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+          <br><br>
+    
+        
+    
+        <!-- Add other fields as needed -->
+    
+        <button type="submit">Register</button><br>
+
+        <p>Already have an Account <a href="{% url 'farmer_login' %}">Login</a> Here</p>
+    </form>
+{% endblock %}
